@@ -6,10 +6,12 @@
 """
     方法一：双指针
     已经提示是双指针题目，所以自然而言的使用双指针，快指针查找非0元素，慢指针记录非0元素
-    快指针遍历完数组后，nums[0,slow-1]是慢指针记录的所有非零元素，nums[slow:]的值没变，需要补零
+    快指针遍历完数组后，nums[0,slow-1]是慢指针记录的所有非零元素，nums[slow:]的值没变，需要补零覆盖
     时间复杂度：O(n)
     空间复杂度：O(1)
 """
+from typing import List
+
 class Solution:
     def moveZeroes(self, nums: List[int]) -> None:
         fast, slow = 0, 0
@@ -34,4 +36,3 @@ class Solution:
                 nums[fast], nums[slow] = nums[slow], nums[fast]
                 slow += 1
             fast += 1
-
